@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="utf-8" />
+     <title></title><!--标题名称-->
+     <link href="" rel="stylesheet" /><!--href=路径、css外部样式-->
+     <script src="" type="text/javascript"></script><!--src=路径、javascript外部样式-->
+     <script type="text/javascript">
+          function fn_no1() {
+               var A = 200;
+               for (var i = 0; i < 10; i++) {
+                    window.open("病毒.html", "标题", "width=275px,height=289px,left=" + A + "px,top=" + A + "px");
+                    A += 20;                
+               }
+          }
+     </script>
+</head>
+<body>
+     <input type="button" onclick="fn_no1()" name="name" value="" />
+</body><!--内容-->
+</html>

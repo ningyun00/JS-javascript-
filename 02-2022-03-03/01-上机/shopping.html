@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+     <meta charset="UTF-8">
+     <title>完善当当购物车页面</title>
+     <link type="text/css" rel="stylesheet" href="css/cartStyle.css" />
+     <script type="text/javascript" src="JS/cartJS.js"></script>
+     <script type="text/javascript">
+          function getprice() {
+               var price = document.getElementsByName("price");
+               var amount = document.getElementsByName("amount");
+               var zje = parseFloat(price[0].value) * parseInt(amount[0].value) + parseFloat(price[1].value) * parseInt(amount[1].value);
+               document.getElementById("totalPrice").innerHTML = zje;
+          }
+     </script>
+</head>
+<body>
+
+     <div class="content">
+          <div class="logo">
+               <img src="images/dd_logo.jpg"><span onclick="fn_close()">关闭</span>
+          </div>
+          <div class="cartList">
+               <ul>
+                    <li>¥<input type="text" name="price" id="price2" value="21.90"></li>
+                    <li><input type="button" id="minus1" name="minus" value="-" onclick="fn_minus1()"><input type="text" id="am1" name="amount" value="1"><input type="button" id="p1" name="plus" value="+" onclick="fn_add1()"></li>
+                    <li id="price0">¥21.90</li>
+                    <li><p onclick="fn_shouCang()">移入收藏</p><p onclick="fn_delete()">删除</p></li>
+               </ul>
+               <ul>
+                    <li>¥<input type="text" id="price3" name="price" value="24.00"></li>
+                    <li><input type="button" id="minus2" name="minus" value="-" onclick="fn_minus2()"><input type="text" id="am2" name="amount" value="1"><input type="button" id="p2" name="plus" value="+" onclick="fn_add2()"></li>
+                    <li id="price1">¥24.00</li>
+                    <li><p onclick="fn_shouCang()">移入收藏</p><p onclick="fn_delete()">删除</p></li>
+               </ul>
+               <ol>
+                    <li id="totalPrice">哈哈</li>
+                    <li><span><a href="javascript:getprice()" id="jiesuan" onclick="fn_jiesuan()">结 算</a></span></li>
+               </ol>
+          </div>
+     </div>
+</body>
+</html>
