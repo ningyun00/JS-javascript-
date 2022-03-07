@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+     <meta charset="UTF-8">
+     <title>TAB切换</title>
+     <link href="css/tab.css" rel="stylesheet">
+</head>
+
+<body>
+     <div class="div_bg">
+          <ul>
+               <li class="bg" id="bg1" onmouseover="changeBook(1)"><a class="white">小说</a></li>
+               <li class="nobg" id="bg2" onmouseover="changeBook(2)"><a class="white">非小说</a></li>
+               <li class="nobg" id="bg3" onmouseover="changeBook(3)"><a class="white">少儿</a></li>
+          </ul>
+          <div id="book124 ">
+               <a href="#" target=_blank>1.时间旅行者的妻子</a><br>
+               <a href="#" target=_blank>2.女心理师（下）</a><br>
+               <a href="#" target=_blank>3.鬼吹灯之精绝古城</a><br>
+               <a href="#" target=_blank>4.女心理师（上）</a><br>
+               <a href="#" target=_blank>5.小时候</a><br>
+               <a href="#" target=_blank>6.追风筝的人</a><br>
+               <a href="#" target=_blank>7.盗墓笔记2</a><br>
+               <a href="#" target=_blank>8.输赢</a>
+          </div>
+          <div id="book2" style="display:none">
+               <a href="#" target=_blank>1.人生若只如初见</a><br>
+               <a href="#" target=_blank>2.高效能人士的七个..</a><br>
+               <a href="#" target=_blank>3.求医不如求己</a><br>
+               <a href="#" target=_blank>4.人体使用手册</a><br>
+               <a href="#" target=_blank>5.孩子，把你的手给我</a><br>
+               <a href="#" target=_blank>6.别笑！我是英文单词书</a><br>
+               <a href="#" target=_blank>7.人体经络使用手册</a><br>
+               <a href="#" target=_blank>8.股市稳赚</a>
+          </div>
+          <div id="book3" style="display:none">
+               <a href="#" target=_blank>1.斯凯瑞金色童书・..</a><br>
+               <a href="#" target=_blank>2.哈利・波特与“混..</a><br>
+               <a href="#" target=_blank>3.不一样的卡梅拉（..</a><br>
+               <a href="#" target=_blank>4.它们是怎么来的</a><br>
+               <a href="#" target=_blank>5.五・三班的坏小子..</a><br>
+               <a href="#" target=_blank>6.男生日记</a><br>
+               <a href="#" target=_blank>7.哈利・波特与魔法石</a><br>
+               <a href="#" target=_blank>8.噼里啪啦丛书(全7册)</a>
+          </div>
+     </div>
+     <script type="text/javascript">
+          function changeBook(num1) {
+               /*请在此处完成代码*/
+               var book1 = document.getElementById("book1");
+               var book2 = document.getElementById("book2");
+               var book3 = document.getElementById("book3");
+               if (num1 == 2) {
+                    book1.style.display = "none";
+                    book2.style.display = "block";
+                    book3.style.display = "none";
+               } else if (num1 == 3) {
+                    book1.style.display = "none";
+                    book2.style.display = "none";
+                    book3.style.display = "block";
+               } else {
+                    book1.style.display = "block";
+                    book2.style.display = "none";
+                    book3.style.display = "none";
+               }
+          }
+     </script>
+</body>
+</html>

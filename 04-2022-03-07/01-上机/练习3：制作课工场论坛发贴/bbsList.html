@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+     <meta charset="UTF-8">
+     <title>课工场论坛列表</title>
+     <link href="css/bbs.css" rel="stylesheet">
+</head>
+<body>
+     <div class="bbs">
+          <header><span onclick="ft()">我要发帖</span></header>
+          <section>
+               <ul id="ul1">
+                    <!--这是一次发帖-->
+                    <li>
+                         <div><img src="images/tou01.jpg"></div>
+                         <h1>如何学习WEB前端开发课程</h1>
+                         <p>板块：新课来了<span>发布时间：2019-02-28 16:6</span></p>
+                    </li>
+                    <li>
+                         <div><img src="images/tou01.jpg"></div>
+                         <h1>如何学习WEB前端开发课程</h1>
+                         <p>板块：新课来了<span>发布时间：2019-02-28 16:7</span></p>
+                    </li>
+
+               </ul>
+          </section>
+          <div class="post" id="post">
+               <input class="title" placeholder="请输入标题（1-50个字符）" id="title">
+               所属版块：<select id="bk"><option>请选择版块</option><option>电子书籍</option><option>新课来了</option><option>新手报到</option><option>职业规划</option></select>
+               <textarea class="content" id="content"></textarea>
+               <input class="btn" value="发布" onclick="fb()">
+          </div>
+     </div>
+     <script type="text/javascript" src="js/bbsList.js"></script>
+</body>
+</html>
