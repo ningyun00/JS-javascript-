@@ -1,0 +1,30 @@
+﻿body
+{
+    margin: 0;
+    padding: 0;
+}
+
+p
+{
+    color: red;
+    text-align: center;
+    font-size: 30px;
+}
+
+#div-top, #div-buttom
+{
+    height: 100px;
+    background-color: black;
+    border: solid 1px #ffffff;
+    padding: 0;
+}
+
+#p-base
+{
+    text-align: left;
+}
+
+#div-middle,#div-base
+{
+    display:none;
+}

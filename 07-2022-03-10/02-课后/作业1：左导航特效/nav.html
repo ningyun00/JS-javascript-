@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <title>导航特效</title>
+     <style type="text/css">
+          * { margin: 0px; padding: 0px; font-size: 12px; }
+          #nav .navsBox { width: 160px; }
+          #nav .navsBox .firstNav { height: 45px; line-height: 45px; background-color: #EBEBEB; border-left: 10px solid #FE705C; padding-left: 20px; width: 130px; font-weight: bold; cursor: pointer; }
+          #nav .navsBox ul { display: none; list-style: none; }
+          #nav .navsBox ul li { display: block; height: 45px; line-height: 45px; padding-left: 70px; width: 90px; background: #F2F2F2 33px 7px no-repeat; }
+
+          #nav .navsBox ul li.jedh { background-image: url("./images/huan.gif"); }
+          #nav .navsBox ul li.jlbbyk { background-image: url("./images/you.gif"); }
+          #nav .navsBox ul li.jwljb { background-image: url("./images/gouwu.gif"); }
+          #nav .navsBox ul li.mrljb { background-image: url("./images/meiri.gif"); }
+          #nav .navsBox ul li.vipjtj { background-image: url("./images/zhe.gif"); }
+          #nav .navsBox ul li.onbg { background-color: #F9DBD1; }
+
+          #nav .navsBox ul li a { color: #000; text-decoration: none; }
+     </style>
+     <script src="js/jquery-1.12.4.js" type="text/javascript"></script>
+     <script type="text/javascript">
+          $(function () {
+               $(".firstNav").click(
+                    function () {
+                         if ($("ul").is(":visible")) {
+                              $("ul").hide(); 
+                         } else {
+                              $("ul").show();
+                         }
+                    });
+               $("li").mouseover(function () {
+                    $(this).css({ "background-color": "red" });
+               });
+               $("li").mouseout(function () {
+                    $(this).css({ "background-color": "" });
+               });
+          });
+     </script>
+</head>
+<body>
+     <div id="nav">
+          <!--提示：给.navsBox添加鼠标的移入和移出事件控制ul的显示和隐藏 -->
+          <div class="navsBox">
+               <div class="firstNav">购物特权</div>
+               <ul>
+                    <!--为每个li添加鼠标的移入和移出事件设置背景颜色 -->
+                    <li class="jedh"><a href="#">全额兑换</a></li>
+                    <li class="jlbbyk"><a href="#">俱乐部包邮卡</a></li>
+                    <li class="jwljb"><a href="#">购物领金币</a></li>
+                    <li class="mrljb"><a href="#">每日领金币</a></li>
+                    <li class="vipjtj"><a href="#">VIP阶梯价</a></li>
+               </ul>
+          </div>
+     </div>
+</body>
+</html>

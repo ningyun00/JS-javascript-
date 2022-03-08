@@ -5,7 +5,15 @@
      <title></title><!--标题名称-->
      <link href="" rel="stylesheet" /><!--href=路径、css外部样式-->
      <script src="js/jquery-1.12.4.js" type="text/javascript"></script><!--src=路径、javascript外部样式-->
+     <script type="text/javascript">
+          $(function () {
+               $("img").click(function () {
+                    $("img").css({ "border": "solid red 1px" });
+               });
+          });
+     </script>
 </head>
 <body>
+     <img src="images/pic.gif" alt="Alternate Text" />
 </body><!--内容-->
 </html>
