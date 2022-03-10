@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+     <meta charset="UTF-8">
+     <title>操作当当购物车页面</title>
+     <link type="text/css" rel="stylesheet" href="css/cartStyle.css" />
+     <script src="js/jquery-1.12.4.js" type="text/javascript"></script>
+     <script type="text/javascript">
+          $(function () {
+               $(".logo span").click(function close_plan() {
+                    if (confirm("是否退出吗?")) {
+                         close();
+                    }
+               });
+               //加
+               jia();
+               //减
+               jian();
+               $("#cartList>ul>li>p").next().click(function () {
+                    if (confirm("是否移除吗？")) {
+                         $(this).parent().parent().remove();
+                    }
+               });
+          });
+          //总计
+          function asdf() {
+               var sum = 0;
+               $("[name='subtotal']").each(function (i, obj) {
+                    sum += parseFloat($(obj).text());
+               });
+               $("#totalPrice>span").text(sum.toFixed(2));
+          };
+          //加
+          function jia() {
+               var A = 0;
+               var num = 0;
+               $("[name='plus']").click(function () {
+                    sum = $(this).prev().val();
+                    if (sum >= 0) {
+                         sum++;
+                    }
+                    A = $(this).parent().prev().children("input").val();
+                    A = (A * sum).toFixed(2);
+                    $(this).parent().next().children("span").text(A);
+                    $(this).prev().val(sum);
+                    asdf();
+               });
+          }
+          //减
+          function jian() {
+               var A = 0;
+               var sum = 0;
+               $("[name='minus']").click(function () {
+                    sum = $(this).next().val();
+                    if (sum >= 1) {
+                         sum--;
+                    } else {
+                         if (confirm("是否要删除吗?")) {
+                              $(this).parent().parent().remove();
+                         }
+                    }
+                    A = (($(this).parent().prev().children("input").val()) * sum).toFixed(2);
+                    $(this).parent().next().children("span").text(A);
+                    $(this).next().val(sum);
+                    asdf();
+               });
+          }
+     </script>
+</head>
+<body>
+     <div class="content">
+          <div class="logo">
+               <img src="images/dd_logo.jpg"><span onclick="close_plan();">关闭</span>
+          </div>
+          <div class="cartList" id="cartList">
+               <ul>
+                    <li>商品图片</li>
+                    <li>商品信息</li>
+                    <li>单价</li>
+                    <li>数量</li>
+                    <li>总价</li>
+                    <li>操作</li>
+               </ul>
+               <ul>
+                    <li><img src="images/dog.jpg"></li>
+                    <li>我和狗狗活下来了</li>
+                    <li>¥<input type="text" name="price" value="21.90"></li>
+                    <li><input type="button" name="minus" value="-"><input type="text" name="amount" value="1"><input type="button" name="plus" value="+"></li>
+                    <li>¥<span name="subtotal">21.90</span></li>
+                    <li><p>移入收藏</p><p>删除</p></li>
+               </ul>
+               <ul>
+                    <li><img src="images/mai.jpg"></li>
+                    <li>灰霾来了怎么办</li>
+                    <li>¥<input type="text" name="price" value="24.00"></li>
+                    <li><input type="button" name="minus" value="-"><input type="text" name="amount" value="1"><input type="button" name="plus" value="+"></li>
+                    <li>¥<span name="subtotal">24.00</span></li>
+                    <li><p>移入收藏</p><p>删除</p></li>
+               </ul>
+               <ol>
+                    <li id="totalPrice">商品总计：<span></span></li>
+                    <li><span onclick="asdf()">结 算</span></li>
+               </ol>
+          </div>
+     </div>
+</body>
+</html>

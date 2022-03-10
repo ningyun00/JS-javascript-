@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <title>百度注册页面</title>
+     <link href="css/reg.css" rel="stylesheet">
+     <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+     <script type="text/javascript">
+          var expion = /\w/;
+          $(function () {
+               $("#user").blur(userName);
+               $("#pwd").blur(userPwd);
+               $("#repwd").blur(andUserPwd);
+               $('[name="sex"]').blur(userSex);
+               $("#email").blur(youXiang);
+               $("#myform").submit(function () {
+                    if (!userName()) {
+                         return false;
+                    }
+                    if (!userPwd()) {
+                         return false;
+                    }
+                    if (!andUserPwd()) {
+                         return false;
+                    }
+                    if (!userSex()) {
+                         return false;
+                    }
+                    if (!youXiang()) {
+                         return false;
+                    }
+               });
+          });
+          function userName() {
+               expion = /\w/;
+               if ($("#user").val() == "") {
+                    $("#userId").html("X     请输入用户名！");
+                    return false;
+               }
+               if (expion.test($("#user").val()) == false) {
+                    $("#userId").html("X     用户名输入错误！");
+                    return false;
+               } else {
+                    $("#userId").html("✔");
+               }
+               return true;
+          }
+          function userPwd() {
+               expion = /[a-zA-Z0-9]{4,10}/;
+               if ($("#pwd").val() == "") {
+                    $("#pwdId").html("X      请输入密码！");
+                    return false;
+               }
+               if (expion.test($("#pwd").val()) == false) {
+                    $("#pwdId").html("X      密码格式错误！");
+                    return false;
+               } else {
+                    $("#pwdId").html("✔");
+               }
+               return true;
+          }
+          //密码
+          function andUserPwd() {
+               if ($("#repwd").val() == "") {
+                    $("#repwdId").html("X    请输入验证密码！");
+                    return false;
+               }
+               if ($("#repwd").val() != $("#pwd").val()) {
+                    $("#repwdId").html("X    两次密码输入不同！");
+                    return false;
+               } else {
+                    $("#repwdId").html("✔");
+               }
+               return true;
+          }
+          //性别
+          function userSex() {
+               if ($('[name="sex"]:checked').val() == undefined) {
+                    $("#sexId").html("X    请选择性别！");
+                    return false;
+               } else {
+                    $("#sexId").html("✔");
+               }
+               return true;
+          }
+          //邮箱
+          function youXiang() {
+               expion = /^\w+@[a-zA-Z]{2}\.(com|cn)$/;
+               if ($("#email").val() == "") {
+                    $("#emailId").html("X    请输入邮箱！");
+                    return false;
+               }
+               if (expion.test($("#email").val()) == false) {
+                    $("#emailId").html("X    邮箱格式错误！");
+                    return false;
+               } else {
+                    $("#emailId").html("✔");
+               }
+               return true;
+          }
+     </script>
+</head>
+
+<body>
+     <div class="register">
+          <div class="center"><img src="images/header1.jpg" /></div>
+          <form action="success.html" method="post" id="myform">
+               <dl>
+                    <dt>用户名：</dt>
+                    <dd><input id="user" type="text" class="inputs" /><div id="userId"></div></dd>
+               </dl>
+               <dl>
+                    <dt>密码：</dt>
+                    <dd><input id="pwd" type="password" class="inputs" /><div id="pwdId"></div></dd>
+               </dl>
+               <dl>
+                    <dt>确认密码：</dt>
+                    <dd><input id="repwd" type="password" class="inputs" /><div id="repwdId"></div></dd>
+               </dl>
+               <dl>
+                    <dt>性别：</dt>
+                    <dd>
+                         <input name="sex" type="radio" value="男" />男 <input name="sex" type="radio" value="女" />女
+                         <div id="sexId"></div>
+                    </dd>
+               </dl>
+               <dl>
+                    <dt>电子邮件：</dt>
+                    <dd><input id="email" type="text" class="inputs" /><div id="emailId"></div></dd>
+               </dl>
+               <dl>
+                    <dt>出生日期：</dt>
+                    <dd>
+                         <select id="year">
+                              <script>
+                                   for (var i = 1900; i <= 2015; i++) {
+                                        document.write("<option value=" + i + ">" + i + "</option>");
+                                   }
+                              </script>
+                         </select>年
+                         <select id="month">
+                              <script>
+                                   for (var i = 1; i <= 12; i++) {
+                                        document.write("<option value=" + i + ">" + i + "</option>");
+                                   }
+                              </script>
+                         </select>月
+                         <select id="day">
+                              <script>
+                                   for (var i = 1; i <= 31; i++) {
+                                        document.write("<option value=" + i + ">" + i + "</option>");
+                                   }
+                              </script>
+                         </select>日
+                    </dd>
+               </dl>
+               <dl>
+                    <dt>&nbsp;</dt>
+                    <dd><input name="sub" type="submit" value="注册" class="btn" /> <input name="cancel" type="reset" value="清除" class="btn" /></dd>
+               </dl>
+          </form>
+     </div>
+</body>
+</html>
