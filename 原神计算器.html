@@ -3,7 +3,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
      <title>圣遗物副词条数便捷计算器</title>
      <style type="text/css">
           .link { color: #03F; text-decoration: none; }
@@ -14,7 +13,6 @@
 
           .wb { font-size: 80%; }
 
-          p.t { font-size: 140%; font-weight: 800; color: #1F4499; text-align: center; font-family: "Microsoft YaHei" }
 
           p.lt { color: #1F4499; font-weight: 800; }
 
@@ -26,7 +24,7 @@
           .tip { margin-left: 60px; margin-right: 60px; }
           input[type="text"] { border-radius: 4px; border: solid 1px #AAAAAA; font-family: "黑体"; padding: 5px; }
           button { color: #444444; background: #F3F3F3; border: 1px #DADADA solid; padding: 5px 10px; border-radius: 2px; font-size: 10pt; outline: none; }
-
+          
           button:hover { border: 1px #C6C6C6 solid; box-shadow: 1px 1px 1px #EAEAEA; color: #333333; background: #F7F7F7; }
 
           button:active { box-shadow: inset 1px 1px 1px #DFDFDF; }
@@ -59,12 +57,10 @@
      <p align="center" class="wb">
           <a></a>
           <a href="#" onclick="info()">使用说明</a>
-          <a href="">更多</a>
      </p>
      <p align="center" class="wb">
           <a></a>
      </p>
-     <hr class="fgx" />
      <div id="page1">
           <!--角色列表point-->
           <p align="center">
@@ -176,7 +172,6 @@
           </p>
           <p align="center" class="lt">——武器攻击力白值——</p>
           <p align="center">
-               <input type="text" id="QQ" value="0" onchange="SetCharS('QQ')" />
           </p>
           <p align="center" id="WeaponList">
                <select id="Weapon" onchange="SetWeapon()">
@@ -192,31 +187,24 @@
           <p align="center" class="lt">——在圣遗物详情界面里——</p>
           <p align="center">
                +生命值：
-               <input type="text" id="T1" value="0" onchange="SetCharS('T1')" />
           </p>
           <p align="center">
                +攻击力：
-               <input type="text" id="T2" value="0" onchange="SetCharS('T2')" />
           </p>
           <p align="center">
                +防御力：
-               <input type="text" id="T3" value="0" onchange="SetCharS('T3')" />
           </p>
           <p align="center">
                +元素精通：
-               <input type="text" id="T4" value="0" onchange="SetCharS('T4')" />
           </p>
           <p align="center">
                +暴击率%：
-               <input type="text" id="T5" value="0" onchange="SetCharS('T5')" />
           </p>
           <p align="center">
                +暴击伤害%：
-               <input type="text" id="T6" value="0" onchange="SetCharS('T6')" />
           </p>
           <p align="center">
                +充能效率%：
-               <input type="text" id="T7" value="0" onchange="SetCharS('T7')" />
           </p>
 
           <p align="center" class="lt" id="anchor">——总结——</p>
@@ -1041,6 +1029,7 @@
                               }
                               temp3 = temp3.toFixed(1)
                               temphtml += "<tr align='center'><td><p id='name" + i.toString() + "'><font color='" + res5 + "'>" + temp.options[i].value + '</font></p></td>' + '<td><p id="result' + i.toString() + '">' + temp3.toString() + '条</p></td>' + '<td >' + (parseFloat(temp2[6]) * 2 + parseFloat(temp2[7])).toFixed(1).toString() + '分</td><td>' + temp4 + '</td><td><b>' + temp5 + '</b></td></tr>'
+
                          }
                     }
                }
