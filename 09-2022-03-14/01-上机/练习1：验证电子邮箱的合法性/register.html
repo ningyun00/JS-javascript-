@@ -8,8 +8,8 @@
      <script type="text/javascript">
           $(function () {
                $("#formRegister").submit(function () {
-                    var expression = /^\w+@[a-zA-Z]{2}\.(com|cn)$/;
-                    if ($("#email").val() == "" || expression.test($("#email").val()) == false) {
+                    var expression = /^\w+@[a-zA-Z]{2}\.(com|cn)$/;//邮箱规范
+                    if ($("#email").val() == "" || expression.test($("#email").val()) == false) {//非空验证邮箱规范判断
                          alert("输入的用户名格式错误");
                          return false;
                     } else {

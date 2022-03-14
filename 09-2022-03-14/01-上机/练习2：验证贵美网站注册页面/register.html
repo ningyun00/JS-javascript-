@@ -23,93 +23,99 @@
                $("#rpass").blur(erCiMiMa);
                //邮箱
                $("#email").blur(youXiang);
+               //表单提交事件
                $("#formRegister").submit(function () {
                     //姓
                     if (!xing()) {
                          return false;
                     }
+                    //氏
                     if (!shi()) {
                          return false;
                     }
+                    //登录名
                     if (!dengLuMing()) {
                          return false;
                     }
+                    //密码
                     if (!miMa()) {
                          return false;
                     }
+                    //验证密码
                     if (!erCiMiMa()) {
                          return false;
                     }
+                    //邮箱
                     if (!youXiang()) {
                          return false;
                     }
                });
           });
-          function xing() {
-               expion = /[0-9]/;
-               if ($("#fname").val() == "") {
-                    $("#DivFname").html("请输入姓！").addClass("span");
+          function xing() {//姓
+               expion = /[0-9]/;//仅数字
+               if ($("#fname").val() == "") {//非空验证
+                    $("#DivFname").html("请输入姓！").addClass("span");//添加提示添加类
                     return false;
                } else {
-                    $("#DivFname").html("");
+                    $("#DivFname").html("");//正确取消提示
                }
-               if (expion.test($("#fname").val()) == true) {
-                    $("#DivFname").html("请勿输入数字！").addClass("span");
+               if (expion.test($("#fname").val()) == true) {//非数字
+                    $("#DivFname").html("请勿输入数字！").addClass("span");//添加错误提示
                     return false;
                } else {
-                    $("#DivFname").html("");
+                    $("#DivFname").html("");//正确取消提示
                }
                return true;
           }
-          function shi() {
-               if ($("#lname").val() == "") {
-                    $("#DivLName").html("请输入姓氏！").addClass("span");
+          function shi() {//氏
+               if ($("#lname").val() == "") {//非空验证
+                    $("#DivLName").html("请输入姓氏！").addClass("span");//错误提示
                     return false;
                } else {
-                    $("#DivLName").html("");
+                    $("#DivLName").html("");//正确取消提示
                }
-               if (expion.test($("#lname").val()) == true) {
-                    $("#DivLName").html("请勿输入数字！").addClass("span");
+               if (expion.test($("#lname").val()) == true) {非数字
+                    $("#DivLName").html("请勿输入数字！").addClass("span");//错误提示
                     return false;
                } else {
-                    $("#DivLName").html("");
+                    $("#DivLName").html("");//正确取消提示
                }
                return true;
           }
-          function dengLuMing() {
-               expion = /\w/;
-               if ($('[name="sname"]').val() == "") {
-                    $("#DivSName").html("请输入登录名！").addClass("span");
+          function dengLuMing() {//登录名
+               expion = /\w/;//数字字符下划线
+               if ($('[name="sname"]').val() == "") {//非空
+                    $("#DivSName").html("请输入登录名！").addClass("span");//错误提示
                     return false;
                }
-               if (expion.test($('[name="sname"]').val()) == false) {
-                    $("#DivSName").html("登录名格式不正确！").addClass("span");
+               if (expion.test($('[name="sname"]').val()) == false) {//判断输入的登录名是否满足要求
+                    $("#DivSName").html("登录名格式不正确！").addClass("span");//错误提示
                     return false;
                } else {
-                    $("#DivSName").html("");
+                    $("#DivSName").html("");//正确取消提示
                }
                return true;
           }
-          function miMa() {
-               if ($("#pass").val() == "") {
-                    $("#DivPwd").html("请输入密码！").addClass("span");
+          function miMa() {//密码
+               if ($("#pass").val() == "") {//非空
+                    $("#DivPwd").html("请输入密码！").addClass("span");//错误提示
                     return false;
                }
-               if ($("#pass").val().length < 6) {
-                    $("#DivPwd").html("密码长度过短！").addClass("span");
+               if ($("#pass").val().length < 6) {//密码长度是否满足
+                    $("#DivPwd").html("密码长度过短！").addClass("span");//错误提示
                     return false;
                } else {
                     $("#DivPwd").html("");
                }
                return true;
           }
-          function erCiMiMa() {
-               if ($("#rpass").val() == "") {
-                    $("#DivRepwd").html("请输入再次输入密码！").addClass("span");
+          function erCiMiMa() {//验证密码
+               if ($("#rpass").val() == "") {//非空
+                    $("#DivRepwd").html("请输入再次输入密码！").addClass("span");//错误提示
                     return false;
                }
-               if ($("#rpass").val() != $("#pass").val()) {
-                    $("#DivRepwd").html("两再次输入密码不同！").addClass("span");
+               if ($("#rpass").val() != $("#pass").val()) {//两次密码不同
+                    $("#DivRepwd").html("两再次输入密码不同！").addClass("span");//错误
                     return false;
                } else {
                     $("#DivRepwd").html("");
