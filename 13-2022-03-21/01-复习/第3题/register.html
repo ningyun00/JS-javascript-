@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <title>百度注册页面</title>
+     <link href="css/reg.css" rel="stylesheet">
+     <script src="js/jquery-1.12.4.js" type="text/javascript"></script>
+     <script type="text/javascript">
+          $(function () {
+               $("#myform").submit(function () {
+
+               });
+               $("#user").focus(function () {
+                    $("#userId").text("");
+               });
+               $("#user").blur(function () {
+                    if ($("#user").val() == "") {
+                         $("#userId").text("请输入用户名！");
+                         return false;
+                    }
+               });
+          });
+     </script>
+</head>
+<body>
+     <div class="register">
+          <div class="center"><img src="images/header1.jpg" /></div>
+          <form action="success.html" method="post" id="myform">
+               <dl>
+                    <dt>用户名：</dt>
+                    <dd><input id="user" type="text" class="inputs" pattern="[a-zA-Z0-9]{6,12}" /><div id="userId"></div></dd>
+               </dl>
+               <dl>
+                    <dt>密码：</dt>
+                    <dd><input id="pwd" type="password" class="inputs" /><div id="pwdId"></div></dd>
+               </dl>
+               <dl>
+                    <dt>确认密码：</dt>
+                    <dd><input id="repwd" type="password" class="inputs" /><div id="repwdId"></div></dd>
+               </dl>
+               <dl>
+                    <dt>性别：</dt>
+                    <dd>
+                         <input name="sex" type="radio" value="男" checked />男 <input name="sex" type="radio" value="女" />女
+                         <div id="sexId"></div>
+                    </dd>
+               </dl>
+               <dl>
+                    <dt>电子邮件：</dt>
+                    <dd><input id="email" type="text" class="inputs" /><div id="emailId"></div></dd>
+               </dl>
+
+               <dl>
+                    <dt>电话号码：</dt>
+                    <dd><input id="phone" type="text" class="inputs" /><div id="phoneId"></div></dd>
+               </dl>
+               <dl>
+                    <dt>&nbsp;</dt>
+                    <dd><input name="sub" type="submit" value="注册" class="btn" /> <input name="cancel" type="reset" value="清除" class="btn" /></dd>
+               </dl>
+          </form>
+     </div>
+</body>
+</html>

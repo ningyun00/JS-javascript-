@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="UTF-8">
+     <title>全选/全不选/反选</title>
+     <script src="js/jquery-1.12.4.js" type="text/javascript"></script>
+     <script type="text/javascript">
+          $(function () {
+               $("#ckall").change(function () {
+                    $('[name="hobby"]').prop("checked", $("#ckall").prop("checked"));
+               });
+               $("#reverse").change(function () {
+                    $('[name="hobby"]').each(function (i) {
+                         if ($('[name="hobby"]:eq(' + i + ')').prop("checked") == true) {
+                              $('input[name="hobby"]:eq(' + i + ')').prop("checked", "");
+                              panDuan();
+                         } else {
+                              $('input[name="hobby"]:eq(' + i + ')').prop("checked", true);
+                              panDuan();
+                         }
+                    });
+               });
+               $('[name="hobby"]').change(function () {
+                    panDuan();
+               });
+          });
+          function panDuan() {
+               if ($('[name="hobby"]').length == $('[name="hobby"]:checked').length) {
+                    $("#ckall").prop("checked", true);
+               } else {
+                    $("#ckall").prop("checked", "");
+               }
+          }
+     </script>
+</head>
+<body>
+     <input type="checkbox" id="ckall" />全选/全不选
+     <input type="checkbox" id="reverse" />反选
+     <br />
+     <input type="checkbox" name="hobby" />看书
+     <input type="checkbox" name="hobby" />游泳
+     <input type="checkbox" name="hobby" />唱歌
+     <input type="checkbox" name="hobby" />跳舞
+     <input type="checkbox" name="hobby" />游戏
+</body>
+</html>

@@ -50,16 +50,16 @@
                     $("#pwdId").text("密码格式错误！").addClass("error_prompt");
                     return false;
                }
-               if ($("#pwd").val() == $("#repwd").val()) {
+               if ($("#pwd").val() != $("#repwd").val()) {
                     $("#repwdId").text("密码不一致").addClass("error_prompt");
                     return false;
                }
-               expion = /\w+@+\w{0,}\.(con|cn){1,2}/;
+               expion = /\w+@+\w{0,}\.(com|cn){1,2}/;
                if (expion.test($("#email").val()) == false) {
                     $("#emailId").text("邮箱格式错误！").addClass("error_prompt");
                     return false;
                }
-               expion = /1+[0-9]{10}/;
+               expion = /^[1][0-9]{10}$/;
                if (expion.test($("#phone").val()) == false) {
                     $("#phoneId").text("电话号码格式错误！").addClass("error_prompt");
                     return false;

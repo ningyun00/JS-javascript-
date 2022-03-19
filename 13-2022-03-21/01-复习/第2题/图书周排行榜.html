@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <title></title>
+     <link rel="stylesheet" type="text/css" href=".css">
+     <style type="text/css">
+          .main_div { /*主DIV*/ width: 169px; height: 290px; background: url(images/bg.jpg) no-repeat; margin: 0px auto; }
+          .myTable { /*表格样式*/ width: 145px; margin: 0px auto; }
+
+          .bg { /*鼠标悬浮单元格样式*/ background: url(images/menu1.gif) no-repeat; text-align: center; width: 30%; height: 25px; }
+
+          .nobg { /*鼠标离开单元格样式*/ background: url(images/menu2.gif) no-repeat; text-align: center; width: 30%; height: 25px; }
+
+          .menu { /*超链接默认样式*/ color: #993366; }
+          a.menu:hover { /*鼠标悬浮超链接样式*/ color: #FFFF99; }
+          td { /*border:1px solid red;*/ font-size: 12px; line-height: 20px; color: #414141; }
+          a { color: #0033FF; text-decoration: none; line-height: 24px; }
+          a:hover { color: red; text-decoration: none; line-height: 24px; }
+     </style>
+     <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+     <script type="text/javascript">
+          $(function () {
+               $("tbody tr:eq(1) td").hover(function () {
+                    $(this).removeClass("nobg").addClass("bg").siblings().removeClass("bg").addClass("nobg").parent().next().find("div:eq(" + $(this).index() + ")").show().siblings().hide();
+               });
+          });
+     </script>
+</head>
+<body>
+     <div class="main_div">
+          <table class="myTable" cellspacing="0" cellpadding="0" border="0px">
+               <tr>
+                    <td style="height:50px;" colspan="3">&nbsp;</td>
+               </tr>
+               <tr>
+                    <td class="bg" id="bg1"><a href="#" class="menu">小说</a></td>
+                    <td class="nobg" id="bg2"><a href="#" class="menu">非小说<a></td>
+                    <td class="nobg" id="bg3"><a href="#" class="menu">少儿</a></td>
+               </tr>
+               <tr>
+                    <td colspan="3" style="padding-top:10px;padding-left:5px;text-align:left;">
+                         <div id="book1" style="display:block;">
+                              <a href="#" target=_blank>1.时间旅行者的妻子</a><br>
+                              <a href="#" target=_blank>2.女心理师（下）</a><br>
+                              <a href="#" target=_blank>3.鬼吹灯之精绝古城</a><br>
+                              <a href="#" target=_blank>4.女心理师（上）</a><br>
+                              <a href="#" target=_blank>5.小时候</a><br>
+                              <a href="#" target=_blank>6.追风筝的人</a><br>
+                              <a href="#" target=_blank>7.盗墓笔记2</a><br>
+                              <a href="#" target=_blank>8.输赢</a>
+                         </div>
+                         <div id="book2" style="display:none;">
+                              <a href="#" target=_blank>1.人生若只如初见</a><br>
+                              <a href="#" target=_blank>2.高效能人士的七个..</a><br>
+                              <a href="#" target=_blank>3.求医不如求己</a><br>
+                              <a href="#" target=_blank>4.人体使用手册</a><br>
+                              <a href="#" target=_blank>5.孩子，把你的手给我</a><br>
+                              <a href="#" target=_blank>6.别笑！我是英文单词书</a><br>
+                              <a href="#" target=_blank>7.人体经络使用手册</a><br>
+                              <a href="#" target=_blank>8.股市稳赚</a>
+                         </div>
+                         <div id="book3" style="display:none;">
+                              <a href="#" target=_blank>1.斯凯瑞金色童书·..</a><br>
+                              <a href="#" target=_blank>2.哈利·波特与“混..</a><br>
+                              <a href="#" target=_blank>3.不一样的卡梅拉（..</a><br>
+                              <a href="#" target=_blank>4.它们是怎么来的</a><br>
+                              <a href="#" target=_blank>5.五·三班的坏小子..</a><br>
+                              <a href="#" target=_blank>6.男生日记</a><br>
+                              <a href="#" target=_blank>7.哈利·波特与魔法石</a><br>
+                              <a href="#" target=_blank>8.噼里啪啦丛书(全7册)</a>
+                         </div>
+                    </td>
+               </tr>
+          </table>
+     </div>
+</body>
+</html> 
