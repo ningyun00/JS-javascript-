@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>百度注册页面</title>
+    <link href="css/reg.css" rel="stylesheet">
+    <script type="text/javascript" src="Jquery/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#myform").submit(function () {
+                if (!notNull()) {
+                    return false;
+                }
+                if (!condition()) {
+                    return false;
+                }
+            })
+            function notNull() {
+                if ($("#user").val() == "") {
+                    $("#userId").html("请输入用户名！").addClass("error_prompt")
+                    return false;
+                } else {
+                    $("#userId").html("")
+                }
+                if ($("#pwd").val() == "") {
+                    $("#pwdId").html("请输入密码！").addClass("error_prompt")
+                    return false;
+                } else {
+                    $("#pwdId").html("")
+                }
+                if ($("#repwd").val() == "") {
+                    $("#repwdId").html("请输入确认密码！").addClass("error_prompt")
+                    return false;
+                } else {
+                    $("#repwdId").html("")
+                }
+                if ($("#email").val() == "") {
+                    $("#emailId").html("请输入邮箱！").addClass("error_prompt")
+                    return false;
+                } else {
+                    $("#emailId").html("")
+                }
+                if ($("#phone").val() == "") {
+                    $("#phoneId").html("请输入电话号码！").addClass("error_prompt")
+                    return false;
+                } else {
+                    $("#phoneId").html("")
+                }
+                return true;
+            }
+            function condition() {
+                var expion = /\w{4,12}/;
+                if (expion.test($("#user").val()) == false) {
+                    $("#userId").html("用户名格式错误！").addClass("error_prompt")
+                    return false
+                } else {
+                    $("#userId").html("")
+                }
+                expion = /[a-zA-Z]{6,12}/
+                if (expion.test($("#pwd").val()) == false) {
+                    $("#pwdId").html("密码格式错误").addClass("error_prompt")
+                    return false
+                } else {
+                    $("#pwdId").html("")
+                }
+                if ($("#pwd").val() == $("#repwd").val()) {
+                    $("#pwdId").html("两次密码不一致").addClass("error_prompt")
+                    return false
+                } else {
+                    $("#pwdId").html("")
+                }
+                expion = /\w+@+\w{0,}\.(com|cn){1,2}/;
+                if (expion.test($("#email").val()) == false) {
+                    $("#emailId").text("邮箱格式错误！").addClass("error_prompt");
+                    return false;
+                } else {
+                    $("#emailId").text("")
+                }
+                expion = /^[1][0-9]{10}$/;
+                if (expion.test($("#phone").val()) == false) {
+                    $("#phoneId").text("电话号码格式错误！").addClass("error_prompt");
+                    return false;
+                } else {
+                    $("#phoneId").text("")
+                }
+            }
+        })
+    </script>
+</head>
+
+<body>
+    <div class="register">
+        <div class="center"><img src="images/header1.jpg" /></div>
+        <form action="success.html" method="post" id="myform">
+            <dl>
+                <dt>用户名：</dt>
+                <dd><input id="user" type="text" class="inputs" /><div id="userId"></div></dd>
+            </dl>
+            <dl>
+                <dt>密码：</dt>
+                <dd><input id="pwd" type="password" class="inputs" /><div id="pwdId"></div></dd>
+            </dl>
+            <dl>
+                <dt>确认密码：</dt>
+                <dd><input id="repwd" type="password" class="inputs" /><div id="repwdId"></div></dd>
+            </dl>
+            <dl>
+                <dt>性别：</dt>
+                <dd>
+                    <input name="sex" type="radio" value="男" checked />男 <input name="sex" type="radio" value="女" />女
+                    <div id="sexId"></div>
+                </dd>
+            </dl>
+            <dl>
+                <dt>电子邮件：</dt>
+                <dd><input id="email" type="text" class="inputs" /><div id="emailId"></div></dd>
+            </dl>
+
+            <dl>
+                <dt>电话号码：</dt>
+                <dd><input id="phone" type="text" class="inputs" /><div id="phoneId"></div></dd>
+            </dl>
+            <dl>
+                <dt>&nbsp;</dt>
+                <dd><input name="sub" type="submit" value="注册" class="btn" /> <input name="cancel" type="reset" value="清除" class="btn" /></dd>
+            </dl>
+        </form>
+    </div>
+</body>
+</html>
