@@ -20,11 +20,12 @@
     <script type="text/javascript" src="Jquery/jquery-1.12.4.js"></script>
     <script type="text/javascript">
         $(function () {
-            $(".myTable tr:eq(1) td").hover(function () {
-                $(this).removeClass("nobg").removeClass("bg").addClass("bg").siblings().addClass("nobg")
+            $("table tr:eq(1) td").hover(function () {
+                $(this).removeClass("nobg").addClass("bg").siblings().addClass("nobg").parent().next().find($("div").eq($(this).index()+1)).show().siblings().hide()
             })
         })
     </script>
+
 </head>
 <body>
     <div class="main_div">
