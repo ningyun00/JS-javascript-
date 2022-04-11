@@ -1,0 +1,9 @@
+﻿* { padding: 0; margin: 0; }
+#div_max { width: 700px; height: 400px; margin: 0 auto; /*background-color:aqua ;*/ }
+#table_shangPing { text-align: center }
+#text1 { width: 100px; height: 20px; text-align: center; }
+.subtract { width: 20px; height: 20px }
+.add { width: 20px; height: 20px }
+tr { height: 30px }
+.tr_tf_name { border: none; border-bottom: none }
+.tr_tf_name_td { border: none }

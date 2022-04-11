@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>购物车</title>
+    <link href="css/asd.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="js/js.js"></script>
+</head>
+<body>
+    <div id="div_max">
+        <!-- 最底下的div -->
+        <table id="table_shangPing" cellpadding="0" cellspacing="0" border="1">
+            <!-- 表格 -->
+            <thead>
+                <tr id="tr_biaoTi">
+                    <!-- 标题列 -->
+                    <th width="200">商品名称</th>
+                    <th width="100">单价</th>
+                    <th width="200">数量</th>
+                    <th width="100">小计</th>
+                    <th width="100">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="tr_shangPing">
+                    <!-- 商品列 -->
+                    <td>仿真休闲皮鞋</td>
+                    <td>￥<span class="price">168.00</span></td>
+                    <td><input type="button" name="name" value="-" class="subtract" id="subtract1" /><input type="text" name="name" value="1" id="text1" readonly class="text" /><input type="button" name="name" value="+" id="add1" class="add" /></td>
+                    <td>￥<span class="money">168.00</span></td>
+                    <td><input type="button" name="name" value="删除" class="del" /></td>
+                </tr>
+                <tr>
+                    <td>白金项链</td>
+                    <td>￥<span class="price">156.00</span></td>
+                    <td><input type="button" name="name" value="-" class="subtract" id="subtract2" /><input type="text" name="name" value="2" id="text1" readonly class="text" /><input type="button" name="name" value="+" id="add2" class="add" /></td>
+                    <td>￥<span class="money">156.00</span></td>
+                    <td><input type="button" name="name" value="删除" class="del" /></td>
+                </tr>
+                <tr>
+                    <td>尤克里里</td>
+                    <td>￥<span class="price">358.00</span></td>
+                    <td><input type="button" name="name" value="-" class="subtract" id="subtract3" /><input type="text" name="name" value="3" id="text1" readonly class="text" /><input type="button" name="name" value="+" id="add3" class="add" /></td>
+                    <td>￥<span class="money">358.00</span></td>
+                    <td><input type="button" name="name" value="删除" class="del" /></td>
+                </tr>
+                <tr >
+                    <td>仿真休闲皮鞋</td>
+                    <td>￥<span class="price">238.00</span></td>
+                    <td><input type="button" name="name" value="-" class="subtract" id="subtract4" /><input type="text" name="name" value="4" id="text1" readonly class="text" /><input type="button" name="name" value="+" id="add4" class="add" /></td>
+                    <td>￥<span class="money">238.00</span></td>
+                    <td><input type="button" name="name" value="删除" class="del" /></td>
+                </tr>
+
+                <tr  class="tianJia">
+                    <td colspan="3" align="right">总计：</td>
+                    <td>￥<span class="prices">920.00</span></td>
+                    <td></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr class="tr_tf_name">
+                    <td colspan="5" class="tr_tf_name_td">商品名称：<input type="text" name="name" id="names" value="" /></td>
+                </tr>
+                <tr class="tr_tf_name">
+                    <td colspan="5" class="tr_tf_name_td">商品单价：<input type="text" id="danJia" name="name" value="" /></td>
+                </tr>
+                <tr class="tr_tf_name">
+                    <td colspan="5" class="tr_tf_name_td">购买数量：<input type="text" id="nums" name="name" value="" /></td>
+                </tr>
+                <tr class="tr_tf_name">
+                    <td colspan="5" class="tr_tf_name_td"><input type="button" name="name" value="添加" id="adds" /></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</body>
+</html>

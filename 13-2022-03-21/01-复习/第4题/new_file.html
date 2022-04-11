@@ -1,149 +1,128 @@
 <!DOCTYPE html>
 <html>
 <head>
-     <meta charset="utf-8">
-     <title></title>
-     <style type="text/css">
-          body, div, ul, li, img { margin: 0; padding: 0; }
-          ul, li { list-style-type: none; }
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+        body, div, ul, li, img { margin: 0; padding: 0; }
+        ul, li { list-style-type: none; }
 
-          #lbt { width: 450px; height: 150px; margin: 0 auto; background-color: pink; position: relative; /*相对定位*/ }
+        #lbt { width: 450px; height: 150px; margin: 0 auto; background-color: pink; position: relative; /*相对定位*/ }
 
-          #ulimg img { width: 450px; height: 150px; }
-          #ulimg li { display: none; }
+        #ulimg img { width: 450px; height: 150px; }
+        #ulimg li { display: none; }
 
-          #ulimg li:nth-child(1) { display: block; }
+        #ulimg li:nth-child(1) { display: block; }
 
-          #ulNum { position: absolute; /* 绝对定位 */ top: 125px; left: 165px; }
-          #ulNum .curNum { background-color: #FF0000; color: #FFFFFF; }
-          /* #ulNum li:nth-child(1){
+        #ulNum { position: absolute; /* 绝对定位 */ top: 125px; left: 165px; }
+        #ulNum .curNum { background-color: #FF0000; color: #FFFFFF; }
+        /* #ulNum li:nth-child(1){
                     background-color: #FF0000;
                     color:#FFFFFF;
                } */
-          #ulNum li { float: left; width: 20px; height: 20px; border-radius: 50%; /* 变圆 */ margin-left: 10px; /* 文字上下左右居中 */ text-align: center; line-height: 20px; cursor: pointer; /* 鼠标变成手型 */ background-color: yellow; }
+        #ulNum li { float: left; width: 20px; height: 20px; border-radius: 50%; /* 变圆 */ margin-left: 10px; /* 文字上下左右居中 */ text-align: center; line-height: 20px; cursor: pointer; /* 鼠标变成手型 */ background-color: yellow; }
 
-          #lbt span { width: 30px; height: 50px; background-color: #9B9B9B; display: inline-block; text-align: center; line-height: 50px; cursor: pointer; font-weight: bolder; opacity: 0.6; }
-          #lbt #spanLeft { position: absolute; /* 绝对定位 */ top: 50px; left: 0px; }
-          #lbt #spanRight { position: absolute; /* 绝对定位 */ top: 50px; left: 420px; }
-     </style>
+        #lbt span { width: 30px; height: 50px; background-color: #9B9B9B; display: inline-block; text-align: center; line-height: 50px; cursor: pointer; font-weight: bolder; opacity: 0.6; }
+        #lbt #spanLeft { position: absolute; /* 绝对定位 */ top: 50px; left: 0px; }
+        #lbt #spanRight { position: absolute; /* 绝对定位 */ top: 50px; left: 420px; }
+    </style>
 </head>
 <body>
-     <div id="lbt">
-          <!-- 图片 -->
-          <ul id="ulimg">
-               <li><img src="images/class1-1.jpg" alt=""></li>
-               <li><img src="images/class1-2.jpg" alt=""></li>
-               <li><img src="images/class1-3.jpg" alt=""></li>
-               <li><img src="images/class1-4.jpg" alt=""></li>
-          </ul>
-          <!-- 数字圆点 -->
-          <ul id="ulNum">
-               <li>1</li>
-               <li>2</li>
-               <li>3</li>
-               <li>4</li>
-          </ul>
-          <!-- 左右耳朵 -->
-          <span id="spanLeft">&lt;</span>
-          <span id="spanRight">&gt;</span>
-     </div>
+    <div id="lbt">
+        <!-- 图片 -->
+        <ul id="ulimg">
+            <li><img src="images/class1-1.jpg" alt=""></li>
+            <li><img src="images/class1-2.jpg" alt=""></li>
+            <li><img src="images/class1-3.jpg" alt=""></li>
+            <li><img src="images/class1-4.jpg" alt=""></li>
+        </ul>
+        <!-- 数字圆点 -->
+        <ul id="ulNum">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <!-- 左右耳朵 -->
+        <span id="spanLeft">&lt;</span>
+        <span id="spanRight">&gt;</span>
+    </div>
 
-     <script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
-     <script type="text/javascript">
-          //1.实现自动轮播
-          var i = 0;
-          //改变图片
-          function changeImages() {
-               //获取图片张数
-               var imgNum = $("#ulimg").children().length;
-               //alert(imgNum);//4
-               i++;
-               if (i > imgNum - 1) {
-                    i = 0;
-               }
-               //显示当前图片
-               $("#ulimg li:eq(" + i + ")").show().siblings().hide();
-
-               //圆点数字变色跑动
-               $("#ulNum li:eq(" + i + ")").addClass("curNum").siblings().removeClass("curNum");
-
-          }
-
-          var t1 = setInterval(changeImages, 1000);//定时器在跑图片
-
-          //2.实现鼠标数字 1234来更换图片
-          $("#ulNum li").hover(
-               function () {
-                    //1.清除定时器
-                    clearInterval(t1);
-
-                    //alert($("#ulNum li").index($(this)));//获取当前下标 索引
-                    //2.获取当前数字的下标
-                    var j = $("#ulNum li").index($(this));
-
-                    //3.显示当前图片
-                    $("#ulimg li:eq(" + j + ")").show().siblings().hide();
-
-                    //3.圆点数字变色跑动
-                    $("#ulNum li:eq(" + j + ")").addClass("curNum").siblings().removeClass("curNum");
-
-               },
-               function () {
-                    t1 = setInterval(changeImages, 1000);//定时器在跑图片
-               }
-          );
-
-          //3.左右耳朵点击切换图片
-          //3.1左耳朵
-          $("span").hover(function () {
-               $("#spanLeft").click(function () {
-
-                    //alert($(".curNum").index());
-                    //1.清除定时器
-                    clearInterval(t1);
-
-                    //2.获取当前图片的下标
-                    var k = $(".curNum").index()
-
-                    k--;
-                    if (k == -1) {
-                         k = $("#ulimg li").length - 1;
-                    }
-                    console.log(k);
-                    //3.显示当前图片
-                    $("#ulimg li:eq(" + k + ")").show().siblings().hide();
-
-                    //3.圆点数字变色跑动
-                    $("#ulNum li:eq(" + k + ")").addClass("curNum").siblings().removeClass("curNum");
-
-               });
-          }, function () {
-               t1 = setInterval(changeImages, 1000);
-          });
-          //3.2右耳朵
-          $("#spanRight").click(function () {
-
-               //alert($(".curNum").index());
-               //1.清除定时器
-               clearInterval(t1);
-
-               //2.获取当前图片的下标
-               var k = $(".curNum").index()
-
-               k++;
-               if (k >= $("#ulimg li").length) {
-                    k = 0;
-               }
-               console.log(k);
-               //3.显示当前图片
-               $("#ulimg li:eq(" + k + ")").show().siblings().hide();
-
-               //3.圆点数字变色跑动
-               $("#ulNum li:eq(" + k + ")").addClass("curNum").siblings().removeClass("curNum");
-
-          });
-
-     </script>
-
+    <script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        //1.实现自动轮播
+        var i = 0;
+        //改变图片
+        function changeImages() {
+            //获取图片张数
+            var imgNum = $("#ulimg").children().length;
+            //alert(imgNum);//4
+            i++;
+            if (i > imgNum - 1) {
+                i = 0;
+            }
+            //显示当前图片
+            $("#ulimg li:eq(" + i + ")").show().siblings().hide();
+            //圆点数字变色跑动
+            $("#ulNum li:eq(" + i + ")").addClass("curNum").siblings().removeClass("curNum");
+        }
+        var t1 = setInterval(changeImages, 1000);//定时器在跑图片
+        //2.实现鼠标数字 1234来更换图片
+        $("#ulNum li").hover(
+            function () {
+                //1.清除定时器
+                clearInterval(t1);
+                //alert($("#ulNum li").index($(this)));//获取当前下标 索引
+                //2.获取当前数字的下标
+                var j = $("#ulNum li").index($(this));
+                //3.显示当前图片
+                $("#ulimg li:eq(" + j + ")").show().siblings().hide();
+                //3.圆点数字变色跑动
+                $("#ulNum li:eq(" + j + ")").addClass("curNum").siblings().removeClass("curNum");
+            },
+            function () {
+                t1 = setInterval(changeImages, 1000);//定时器在跑图片
+            }
+        );
+        //3.左右耳朵点击切换图片
+        //3.1左耳朵
+        $("span").hover(function () {
+            $("#spanLeft").click(function () {
+                //alert($(".curNum").index());
+                //1.清除定时器
+                clearInterval(t1);
+                //2.获取当前图片的下标
+                var k = $(".curNum").index()
+                k--;
+                if (k == -1) {
+                    k = $("#ulimg li").length - 1;
+                }
+                console.log(k);
+                //3.显示当前图片
+                $("#ulimg li:eq(" + k + ")").show().siblings().hide();
+                //3.圆点数字变色跑动
+                $("#ulNum li:eq(" + k + ")").addClass("curNum").siblings().removeClass("curNum");
+            });
+        }, function () {
+            t1 = setInterval(changeImages, 1000);
+        });
+        //3.2右耳朵
+        $("#spanRight").click(function () {
+            //alert($(".curNum").index());
+            //1.清除定时器
+            clearInterval(t1);
+            //2.获取当前图片的下标
+            var k = $(".curNum").index()
+            k++;
+            if (k >= $("#ulimg li").length) {
+                k = 0;
+            }
+            console.log(k);
+            //3.显示当前图片
+            $("#ulimg li:eq(" + k + ")").show().siblings().hide();
+            //3.圆点数字变色跑动
+            $("#ulNum li:eq(" + k + ")").addClass("curNum").siblings().removeClass("curNum");
+        });
+    </script>
 </body>
 </html>
