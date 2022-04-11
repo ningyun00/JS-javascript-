@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+        body, div, ul, li, img { margin: 0; padding: 0; }
+        ul, li { list-style-type: none; }
+
+        #lbt { width: 450px; height: 150px; margin: 0 auto; background-color: pink; position: relative; /*相对定位*/ }
+
+        #ulimg img { width: 450px; height: 150px; }
+        #ulimg li { display: none; }
+
+        #ulimg li:nth-child(1) { display: block; }
+
+        #ulNum { position: absolute; /* 绝对定位 */ top: 125px; left: 165px; }
+        #ulNum .curNum { background-color: #FF0000; color: #FFFFFF; }
+        /* #ulNum li:nth-child(1){
+                    background-color: #FF0000;
+                    color:#FFFFFF;
+               } */
+        #ulNum li { float: left; width: 20px; height: 20px; border-radius: 50%; /* 变圆 */ margin-left: 10px; /* 文字上下左右居中 */ text-align: center; line-height: 20px; cursor: pointer; /* 鼠标变成手型 */ background-color: yellow; }
+
+        #lbt span { width: 30px; height: 50px; background-color: #9B9B9B; display: inline-block; text-align: center; line-height: 50px; cursor: pointer; font-weight: bolder; opacity: 0.6; }
+        #lbt #spanLeft { position: absolute; /* 绝对定位 */ top: 50px; left: 0px; }
+        #lbt #spanRight { position: absolute; /* 绝对定位 */ top: 50px; left: 420px; }
+    </style>
+</head>
+<body>
+    <div id="lbt">
+        <!-- 图片 -->
+        <ul id="ulimg">
+            <li><img src="images/class1-1.jpg" alt=""></li>
+            <li><img src="images/class1-2.jpg" alt=""></li>
+            <li><img src="images/class1-3.jpg" alt=""></li>
+            <li><img src="images/class1-4.jpg" alt=""></li>
+        </ul>
+        <!-- 数字圆点 -->
+        <ul id="ulNum">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <!-- 左右耳朵 -->
+        <span id="spanLeft">&lt;</span>
+        <span id="spanRight">&gt;</span>
+    </div>
+
+    <script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(function () {
+            var i = 0
+            function changImages() {
+                $("#ulimg li:eq(" + i + ")").show().siblings().hide();
+                $("#ulNum li:eq(" + i + ")").addClass("curNum").siblings().removeClass("curNum");
+                i++;
+                if (i > $("#ulimg").children().length - 1) {
+                    i = 0;
+                }
+            }
+            var t1 = setInterval(changImages, 1000);//定时器在跑图片
+        })
+    </script>>
+</body>
+</html>
